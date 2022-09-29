@@ -1,0 +1,94 @@
+public class Queue 
+{
+	
+	static int head;
+	static int size;
+	int Queue [];
+	int temp;
+
+	Queue()
+	{
+		head=-1;
+		size=7;
+		Queue=new int[size];
+		temp=head;
+		
+	}
+
+	public boolean isEmpty()  //isEmpty function is to check whether the Queue is empty or not 
+	{
+		return head==-1;
+	}
+	
+	public boolean isFull()   //isFull function is to check whether the Queue is full or not 
+	{
+		return head>=size-1;
+	}
+	
+	public void offer(int data)   //isFull function is to add elements in the queue
+	{
+		if(isFull())
+		{
+			System.out.println("The Queue is full");
+			return;
+		}
+		else
+		Queue[++head]=data;
+	}
+
+	public int peek()  //isFull function is to retrive the topmost element of the queue
+	{
+		if(isEmpty())
+		{
+			System.out.println("Queue is empty");
+			return 0;
+		}
+		
+		return Queue[0];
+	}
+	
+	public int remove()  //isFull function is to remove the topmost element of the queue
+	{
+		if(isEmpty())
+		{
+			System.out.println("Queue is empty");
+			return 0;
+		}
+		
+		return Queue[head--];
+	}
+	
+	public void printQueue()   //isFull function is to print the queue
+	{
+		for(int i=0;i<size;i++)
+		{
+			System.out.print(Queue[i]+" ");
+		}
+	}
+	
+	public static void main(String[] args)   //main function
+	{
+		Queue ob=new Queue();
+		
+		System.out.println("Check whether it is empty or not = "+ob.isEmpty());
+		
+		ob.offer(1);
+		ob.offer(2);
+		ob.offer(3);
+		ob.offer(4);
+		
+		System.out.println("peek= "+ob.peek());
+		System.out.println("remove= "+ob.remove());
+		ob.offer(5);
+		ob.offer(6);
+		ob.offer(7);
+		ob.offer(8);
+		ob.offer(9);
+		
+		
+		ob.printQueue();
+		System.out.println("\npeek= "+ob.peek());
+		System.out.println("Check whether it is  or not = "+ob.isFull());
+	}
+
+}
