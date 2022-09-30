@@ -1,0 +1,71 @@
+class Circle
+{
+	private double radius;
+	private String colour;
+	
+	
+	Circle(){
+		radius=1.0;
+		colour="Red";
+	}
+	
+	Circle(double r){
+		radius=r;
+		colour="Red";
+	}
+	
+	public double getRadius(){
+		return radius;
+	}
+	
+	public String getColour() {
+		return colour;
+	}
+	
+	public void setRadius(double radius) {
+		this.radius=radius;
+	}
+	
+	public void setColour(String colour) {
+		this.colour=colour;
+	}
+	
+	public double getArea() {
+		return radius*radius*Math.PI;
+	}
+	
+	public double getCircumference() {
+		return 2*Math.PI*radius;
+	}
+	
+	public String toString() {
+		
+		return "Circle:- Radius =["+ radius +"] and Area :- ["+ getArea()+"]"; 
+	}
+
+}
+
+public class TestCircle {
+
+	public static void main(String[] args) 
+	{
+		Circle c1=new Circle();
+		System.out.println("The radius of circle is = "+c1.getRadius()+" and the colour is = "+c1.getColour());
+		System.out.println("The area is ="+c1.getArea()+" and the circumference is = "+c1.getCircumference());
+		
+		Circle c2=new Circle(3.0);
+		System.out.println("\nThe radius of circle is = "+c2.getRadius()+" and the colour is = "+c2.getColour());
+		System.out.println("The area is ="+c2.getArea()+" and the circumference is = "+c2.getCircumference());
+		
+		
+		Circle c3=new Circle();
+		c3.setRadius(5);
+		c3.setColour("yellow");
+		System.out.println("\nThe radius of circle is = "+c3.getRadius()+" and the colour is = "+c3.getColour());
+		
+
+		Circle c4=new Circle();
+		System.out.println("\n"+c4.toString());
+	}
+
+}
