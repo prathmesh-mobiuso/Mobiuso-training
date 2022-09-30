@@ -1,0 +1,99 @@
+class Time {
+	
+	private int hour;
+	private int minute;
+	private int second;
+	
+
+	
+	
+	Time(int h,int m,int s)
+	{
+		hour=((h>=0 && h<24)?h:0);
+		minute=((m>=0 && m<60)?m:0);
+		second=((s>=0 && s<60)?s:0);
+		
+	}
+
+
+	public int getHour() {
+		return hour;
+	}
+
+
+	public void setHour(int hour) {
+		hour=((hour>=0 && hour<24)?hour:0);
+		this.hour = hour;
+	}
+
+
+	public int getMinute() {
+		return minute;
+	}
+
+
+	public void setMinute(int minute) {
+		minute=((minute>=0 && minute<60)?minute:0);
+		this.minute = minute;
+		
+	}
+
+
+	public int getSecond() {
+		return second;
+	}
+
+
+	public void setSecond(int second) {
+		second=((second>=0 && second<60)?second:0);
+		this.second = second;
+	}
+	
+	public void setTime(int h,int m,int s) {
+		
+		hour=((h>=0 && h<24)?h:0);
+		minute=((m>=0 && m<60)?m:0);
+		second=((s>=0 && s<60)?s:0);
+	}
+	
+	public void getPrevious() {
+		second=second-1;
+		
+	}
+	
+	public void getNext() {
+		second=second+1;
+		second=((second>=0 && second<60)?second:0);
+	}
+	
+	
+	public String toString() {
+		
+		return String.format("%02d:%02d:%02d",hour,minute,second);
+	}
+	
+	
+}
+
+
+
+public class Timeclass {
+
+	public static void main(String[] args) {
+		
+		Time t1=new Time(4,59,59);
+		
+		System.out.println("Inputed time = "+t1.toString());
+		t1.getPrevious();
+		System.out.println("After 1 sec previous = "+t1.toString());
+		
+		t1.getNext();
+		System.out.println("After 1 sec forward = "+t1.toString());
+		
+
+		t1.getNext();
+		System.out.println("After 1 sec forward = "+t1.toString());
+		
+	}
+
+}
