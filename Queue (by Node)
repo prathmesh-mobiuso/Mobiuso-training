@@ -1,0 +1,77 @@
+
+public class Queue {
+
+	Node head;
+	static class Node {
+		int data;
+		Node next;
+		
+		Node(int data) {
+			this.data=data;
+			this.next=null;
+		}
+	}
+	
+	public boolean isEmpty() {
+		return head==null;
+	}
+	
+	public void offer(int data) {
+		Node newNode=new Node(data);
+		if(isEmpty()) {
+			head=newNode;
+			return;
+		}
+		
+		Node currNode=head;
+		while(currNode.next!=null) {
+			currNode=currNode.next;
+		}
+		currNode.next=newNode;
+	}
+	
+	public int peek() {
+		if(isEmpty()) {
+			System.out.println("Queue is empty");
+			return -1;
+		}
+		
+		int top= head.data;
+			
+		return top;
+		
+	}
+	
+	public int pop() {
+		if(isEmpty()) {
+			System.out.println("Queue is empty");
+			return -1;
+		}
+		Node currNode=head;
+		int top=currNode.data;
+		
+		currNode=head.next;
+		head=currNode;
+		return top;
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		Queue qq=new Queue();
+		
+		qq.offer(1);
+		qq.offer(2);
+		qq.offer(3);
+		qq.offer(4);
+		qq.offer(5);
+		qq.offer(6);
+		
+		while(!qq.isEmpty()) {
+			System.out.print(qq.peek()+"  ");
+			qq.pop();
+		}
+		
+	}
+
+}
