@@ -1,0 +1,71 @@
+
+public class Stack {
+
+	Node head;
+	static class Node {
+		int data;
+		Node next;
+		
+		Node(int data) {
+			this.data=data;
+			this.next=null;
+		}
+	}
+	public boolean isEmpty() {
+		return head==null;
+	}
+	
+	public void push(int data) {    
+		Node newNode=new Node(data);
+		if(isEmpty()) {
+			head=newNode;
+			return;
+		}
+		
+		newNode.next=head;
+		head=newNode;	
+	}
+	
+	public int peek() {
+		int top=head.data;
+		return  top;
+	}
+	
+	public int pop() {
+		int top=head.data;
+		if(isEmpty()) {
+			System.out.println("The Queue is null ");
+			return -1;
+		}
+		
+		if(head.next==null) {
+			head=null;
+			return -1;
+		}
+		
+		Node currNode=head.next;
+		head=currNode;
+		return top;
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		
+		Stack ss=new Stack();
+		
+		ss.push(1);
+		ss.push(2);
+		ss.push(3);
+		ss.push(4);
+		ss.push(5);
+		ss.push(6);
+		
+		
+		while(!ss.isEmpty()) {
+			System.out.println(ss.peek()+"  ");
+			ss.pop();
+		}
+	}
+
+}
