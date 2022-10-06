@@ -1,0 +1,105 @@
+import java.util.*;
+
+public class Manager {                          // Manager class 
+
+	public boolean Accept_Or_Reject() {
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("MANAGER :- to grant leave then press 'Yes' or press 'No' = ");
+		String n=sc.next();
+		
+		if(n.equalsIgnoreCase("Yes")) {
+			return true;
+			
+		}
+		
+		else{
+			 return false;
+		}
+
+		
+	}
+	
+}
+
+
+public class Employee                                 //Employee Class
+{
+	
+	private String name;
+	private int total_leave;
+	
+	
+	
+	Employee(String name,int total_leave) {
+		this.name=name;
+		this.total_leave=total_leave;
+	}
+	
+	
+	public String getName() {
+		return name;
+	}
+	
+	
+	
+	public int getCheck() {	
+		return total_leave;
+	}
+
+	public int getTotal_leave() {
+		return total_leave;
+	}
+
+	public void setTotal_leave(int total_leave) {
+		this.total_leave = total_leave;
+	}
+	
+	public void applyLeave() {
+		Scanner s=new Scanner(System.in);
+		if(total_leave==0) {
+			System.out.println("Sorry...! You have no leave left....");
+			return;
+		}
+		
+		System.out.println("Enter how many days you want to leave = ");
+		int leave=s.nextInt();
+		
+		if(leave<=total_leave) {
+			
+			Manager mng=new Manager();
+		
+			if(mng.Accept_Or_Reject()) {
+			
+				System.out.println("Dear "+name+" , Your leave request is accepted.");
+				total_leave=total_leave-leave;
+				System.out.println("Now total leave remaining are "+total_leave);
+			}
+			else {
+				System.out.println("Dear "+name+" , Your leave is cancelled.");
+			}
+		}
+		else
+		{
+			System.out.println("You exceeded your leave limit.");
+		}	
+	}
+}
+
+
+public class Leave_management_system {
+
+	public static void main(String[] args) 
+	{
+		
+		Employee e1=new Employee("Prathmesh",12);
+		System.out.println("Employee's name = "+e1.getName());
+		System.out.println("Total leaves are = "+e1.getTotal_leave());
+		e1.applyLeave();
+		System.out.println("Total leaves are = "+e1.getTotal_leave());
+		e1.applyLeave();
+		
+	}
+
+}
+
